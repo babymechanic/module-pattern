@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <script src="../lib/jquery-3.4.1.js"></script>
-  <script src="./scripts.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/jquery-3.4.1.js"></script>
+    <script src="./scripts.js"></script>
+  </head>
 <body>
-<label for="category">Category</label>
-<select id="category"
-        data-categories='[{"id":1,"label":"Fruits"},{"id":2,"label":"Vegetables"}]'>
-</select>
-<label for="items">Item Types</label>
-<select id="items"
-        data-sub-categories='[{"id":1,"parentId":1,"label":"Apple"},{"id":2,"parentId":1,"label":"Banana"},{"id":3,"parentId":2,"label":"Potato"},{"id":4,"parentId":2,"label":"Tomato"}]'>
-</select>
-<script>
-  $(function () {
-
-    let $category = $('#category');
-    let categories = $category.data('categories');
-    $category.append(`<option disabled selected value style="display:none">Select a category</option>`);
-    categories.forEach((category) => {
-      let option = `<option value="${category.id}">${category.label}</option>`;
-      $('#category').append(option);
-    });
-    $category.change(() => {
-      let selectedCategory = $('#category option:selected').val();
-      let $subCategory = $('#items');
-      $subCategory.empty();
-      let subCategories = $subCategory.data('sub-categories')
-        .filter((subCategory) => subCategory.parentId.toString() === selectedCategory);
-      $subCategory.append(`<option disabled selected value style="display:none">Select a sub category</option>`);
-      subCategories.forEach((subCategory) => {
-        let option = `<option value="${subCategory.id}">${subCategory.label}</option>`;
-        $('#items').append(option);
+  <label for="category">Category</label>
+  <select id="category"
+          data-categories='[{"id":1,"label":"Fruits"},{"id":2,"label":"Vegetables"}]'>
+  </select>
+  <label for="items">Item Types</label>
+  <select id="items"
+          data-sub-categories='[{"id":1,"parentId":1,"label":"Apple"},{"id":2,"parentId":1,"label":"Banana"},{"id":3,"parentId":2,"label":"Potato"},{"id":4,"parentId":2,"label":"Tomato"}]'>
+  </select>
+  <script>
+    $(function () {
+      const $category = $('#category');
+      const categories = $category.data('categories');
+      $category.append(`<option disabled selected value style="display:none">Select a category</option>`);
+      categories.forEach((category) => {
+        const option = `<option value="${category.id}">${category.label}</option>`;
+        $('#category').append(option);
       });
-
-    });
-
-
-
-
-
-  })
-</script>
-</body>
+      $category.change(() => {
+        const selectedCategory = $('#category option:selected').val();
+        const $subCategory = $('#items');
+        $subCategory.empty();
+        const subCategories = $subCategory.data('sub-categories')
+          .filter((subCategory) => subCategory.parentId.toString() === selectedCategory);
+        $subCategory.append(`<option disabled selected value style="display:none">Select a sub category</option>`);
+        subCategories.forEach((subCategory) => {
+          const option = `<option value="${subCategory.id}">${subCategory.label}</option>`;
+          $('#items').append(option);
+        });
+      });
+    })
+  </script>
+  </body>
 </html>
