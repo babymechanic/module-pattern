@@ -14,3 +14,7 @@
 - Repeated code - creation of options in the select
 
 # How can we handle this better?
+
+- Module pattern
+- Closures
+- Unit tests
