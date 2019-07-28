@@ -74,7 +74,7 @@ describe('SelectComponent', function () {
     expect(value).toEqual('3');
   });
 
-  it('should be able to set the value of the option', function () {
+  it('should be able to set and get the value of the option', function () {
     selectComponent.setOptions([
       {value: 1, label: 'option1'},
       {value: 2, label: 'option2'}
@@ -83,6 +83,7 @@ describe('SelectComponent', function () {
     selectComponent.selectOption(2);
 
     expect(selectPageObject.selectedOption()).toEqual('2');
+    expect(selectComponent.selectedOption()).toEqual('2');
   });
 
   it('should throw an error if the selected option is not a valid option', function () {

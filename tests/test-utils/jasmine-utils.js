@@ -7,6 +7,9 @@ JHG.TestUtils.Jasmine = JHG.TestUtils.Jasmine || function () {
     },
     setFixture: function (html) {
       $('#testFixture').html(html)
+    },
+    setDataTag: function (id, tagName, data) {
+      $('#'+id).data(tagName, data);
     }
   };
 }();

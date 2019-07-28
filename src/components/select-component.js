@@ -52,11 +52,16 @@ JHG.Components.SelectComponent = JHG.Components.SelectComponent || function () {
           selectElement(id).val(value.toString()).trigger('change');
         };
 
+        var selectedOption = function () {
+          return selectElement(id).val();
+        };
+
         return {
           setOptions: setOptions,
           clear: clear,
           onChange: onChange,
-          selectOption: selectOption
+          selectOption: selectOption,
+          selectedOption: selectedOption
         }
       }();
     },

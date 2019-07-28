@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <!-- libraries  -->
   <script src="../lib/jquery-3.4.1.js"></script>
-  <script src="./scripts.js"></script>
+  <!-- components  -->
+  <script src="../src/components/select-component.js"></script>
+  <script src="components/data-tag-select-component.js"></script>
 </head>
 <body>
 <label for="category">Category</label>
@@ -15,30 +18,11 @@
 <select id="items"
         data-sub-categories='[{"id":1,"parentId":1,"label":"Apple"},{"id":2,"parentId":1,"label":"Banana"},{"id":3,"parentId":2,"label":"Potato"},{"id":4,"parentId":2,"label":"Tomato"}]'>
 </select>
+<script src="../src/pages/test-page.js"></script>
 <script>
   $(function () {
-    var $category = $('#category');
-    var categories = $category.data('categories');
-    $category.append(`<option disabled selected value style="display:none">Select a category</option>`);
-    categories.forEach(function (category) {
-      var option = `<option value="${category.id}">${category.label}</option>`;
-      $('#category').append(option);
-    });
-    $category.change(function() {
-      var selectedCategory = $('#category option:selected').val();
-      var $subCategory = $('#items');
-      $subCategory.empty();
-      var subCategories = $subCategory.data('sub-categories')
-        .filter(function (subCategory) {
-          return subCategory.parentId.toString() === selectedCategory;
-        });
-      $subCategory.append(`<option disabled selected value style="display:none">Select a sub category</option>`);
-      subCategories.forEach(function(subCategory) {
-        var option = `<option value="${subCategory.id}">${subCategory.label}</option>`;
-        $('#items').append(option);
-      });
-    });
-  })
+    JHG.Pages.TestPage.init();
+  });
 </script>
 </body>
 </html>
