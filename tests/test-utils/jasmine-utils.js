@@ -1,6 +1,6 @@
-var JHG = JHG || {};
-JHG.TestUtils = JHG.TestUtils || {};
-JHG.TestUtils.Jasmine = JHG.TestUtils.Jasmine || function () {
+var App = App || {};
+App.TestUtils = App.TestUtils || {};
+App.TestUtils.Jasmine = App.TestUtils.Jasmine || function () {
   return {
     clearFixture: function () {
       $('#testFixture').html('');

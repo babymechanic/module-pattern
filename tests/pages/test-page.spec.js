@@ -1,7 +1,7 @@
 describe('test-page', () => {
 
-  var jasmineUtils = JHG.TestUtils.Jasmine;
-  var createSelectPageObject = JHG.TestUtils.PageObjects.SelectPageObject.create;
+  var jasmineUtils = App.TestUtils.Jasmine;
+  var createSelectPageObject = App.TestUtils.PageObjects.SelectPageObject.create;
   var itemsPageObject;
   var categoryPageObject;
 

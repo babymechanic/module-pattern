@@ -1,7 +1,7 @@
-var JHG = JHG || {};
-JHG.Components = JHG.Components || {};
+var App = App || {};
+App.Components = App.Components || {};
 
-JHG.Components.SelectComponent = JHG.Components.SelectComponent || function () {
+App.Components.SelectComponent = App.Components.SelectComponent || function () {
 
   var selectElement = function (id) {
     return $('#' + id);

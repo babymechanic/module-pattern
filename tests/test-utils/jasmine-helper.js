@@ -1,3 +1,3 @@
 afterEach(() => {
-  JHG.TestUtils.Jasmine.clearFixture();
+  App.TestUtils.Jasmine.clearFixture();
 });

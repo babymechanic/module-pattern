@@ -1,10 +1,10 @@
-var JHG = JHG || {};
-JHG.Components = JHG.Components || {};
+var App = App || {};
+App.Components = App.Components || {};
 
-JHG.Components.DataTagSelectComponent = JHG.Components.DataTagSelectComponent || function () {
+App.Components.DataTagSelectComponent = App.Components.DataTagSelectComponent || function () {
 
   function selectComponent() {
-    return JHG.Components.SelectComponent;
+    return App.Components.SelectComponent;
   }
 
   function createSelectComponent(id, data, listeners) {

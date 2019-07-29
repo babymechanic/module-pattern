@@ -1,10 +1,10 @@
-var JHG = JHG || {};
-JHG.Pages = JHG.Pages || {};
+var App = App || {};
+App.Pages = App.Pages || {};
 
-JHG.Pages.TestPage = JHG.Pages.TestPage || function () {
+App.Pages.TestPage = App.Pages.TestPage || function () {
 
   var createDataTagSelectComponent = function () {
-    return JHG.Components.DataTagSelectComponent.create;
+    return App.Components.DataTagSelectComponent.create;
   };
 
   var createCategoriesComponent = function () {

@@ -1,8 +1,8 @@
 describe('DataTagSelectComponent', () => {
 
-  var jasmineUtils = JHG.TestUtils.Jasmine;
-  var DataTagSelectComponent = JHG.Components.DataTagSelectComponent;
-  var createSelectPageObject = JHG.TestUtils.PageObjects.SelectPageObject.create;
+  var jasmineUtils = App.TestUtils.Jasmine;
+  var DataTagSelectComponent = App.Components.DataTagSelectComponent;
+  var createSelectPageObject = App.TestUtils.PageObjects.SelectPageObject.create;
   var selectPageObject;
 
   beforeEach(() => {

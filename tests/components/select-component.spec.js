@@ -1,8 +1,8 @@
 describe('SelectComponent', function () {
 
-  var createSelectComponent = JHG.Components.SelectComponent.create;
-  var createSelectPageObject = JHG.TestUtils.PageObjects.SelectPageObject.create;
-  var jasmineUtils = JHG.TestUtils.Jasmine;
+  var createSelectComponent = App.Components.SelectComponent.create;
+  var createSelectPageObject = App.TestUtils.PageObjects.SelectPageObject.create;
+  var jasmineUtils = App.TestUtils.Jasmine;
   var selectComponent;
   var selectPageObject;
 

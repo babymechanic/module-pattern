@@ -1,8 +1,8 @@
-var JHG = JHG || {};
-JHG.TestUtils = JHG.TestUtils || {};
-JHG.TestUtils.PageObjects = JHG.TestUtils.PageObjects || {};
+var App = App || {};
+App.TestUtils = App.TestUtils || {};
+App.TestUtils.PageObjects = App.TestUtils.PageObjects || {};
 
-JHG.TestUtils.PageObjects.SelectPageObject = JHG.TestUtils.PageObjects.SelectPageObject || function () {
+App.TestUtils.PageObjects.SelectPageObject = App.TestUtils.PageObjects.SelectPageObject || function () {
   return {
     create: function (id) {
       return function () {
