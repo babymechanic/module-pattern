@@ -2,6 +2,7 @@ describe('test-page', () => {
 
   var jasmineUtils = App.TestUtils.Jasmine;
   var createSelectPageObject = App.TestUtils.PageObjects.SelectPageObject.create;
+  var testPage = App.Pages.TestPage;
   var itemsPageObject;
   var categoryPageObject;
 
@@ -22,6 +23,20 @@ describe('test-page', () => {
   });
 
   it('should load with default values', function () {
+    testPage.init();
 
+    expect(categoryPageObject.optionsCount()).toEqual(2);
+    expect(categoryPageObject.selectedOption()).toEqual('1');
+    expect(itemsPageObject.optionsCount()).toEqual(2);
+    expect(itemsPageObject.selectedOption()).toEqual('1');
+  });
+
+  it('changes the subcategory based on category', function () {
+    testPage.init();
+
+    categoryPageObject.selectOption(2);
+    expect(itemsPageObject.selectedOption()).toEqual('3');
+    expect(itemsPageObject.optionLabel('3')).toEqual('Potato');
+    expect(itemsPageObject.optionLabel('4')).toEqual('Tomato');
   });
 });
