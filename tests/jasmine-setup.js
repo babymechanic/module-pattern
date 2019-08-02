@@ -13,20 +13,13 @@ requirejs.config({
       deps: ['jasmine']
     },
     'jasmine-boot': {
-      deps : ['jasmine', 'jasmine-html']
+      deps: ['jasmine', 'jasmine-html']
     }
   }
 });
 
-// add your test here
-var tests = [
-  './components/select-component.spec',
-  './components/data-tag-select-component.spec',
-  './pages/test-page.spec'
-];
-
-requirejs(['jasmine-boot'], function () {
-  require(tests, function () {
+requirejs(['./jasmine-spec-list'], function (listOfSpecs) {
+  require(listOfSpecs, function () {
     window.onload(null);
   });
 });
