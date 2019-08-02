@@ -3,7 +3,7 @@ define([
   './select-component'
 ], function (jquery, SelectComponent) {
 
-  function createSelectComponent(id, data, listeners) {
+  var createSelectComponent = function(id, data, listeners) {
     var createdComponent = SelectComponent.create(id);
     createdComponent.setOptions(data);
     createdComponent.onChange(function (selectedValue) {
@@ -16,7 +16,7 @@ define([
       })
     });
     return createdComponent;
-  }
+  };
 
   return {
     create: function (id, dataTagName, opts) {

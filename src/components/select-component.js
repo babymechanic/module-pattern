@@ -11,20 +11,20 @@ define([
   };
 
 
-  function allOptions(id) {
+  var allOptions = function (id) {
     return jquery('select#' + id + ' option').map(function () {
       return jquery(this).val();
     }).toArray();
-  }
+  };
 
-  function setupObserverNotification(id, listeners) {
+  var setupObserverNotification = function (id, listeners) {
     selectElement(id).change(function () {
       var selectedValue = jquery('#' + id + ' option:selected').val();
       listeners.forEach((listener) => {
         listener(selectedValue);
       });
     });
-  }
+  };
 
   return {
     create: function (id) {

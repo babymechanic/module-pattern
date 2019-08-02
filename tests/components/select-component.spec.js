@@ -6,19 +6,13 @@ define([
 
   describe('SelectComponent', function () {
 
-    var createSelectComponent = SelectComponent.create;
-    var createSelectPageObject = SelectPageObject.create;
     var selectComponent;
     var selectPageObject;
 
-    beforeEach(() => {
-      jasmineUtils.setFixture(`<select id="testComponent"></select>`);
-      selectComponent = createSelectComponent('testComponent');
-      selectPageObject = createSelectPageObject('testComponent')
-    });
-
-    afterEach(() => {
-      jasmineUtils.clearFixture();
+    beforeEach(function () {
+      jasmineUtils.setFixture('<select id="testComponent"></select>');
+      selectComponent = SelectComponent.create('testComponent');
+      selectPageObject = SelectPageObject.create('testComponent')
     });
 
     it('should create a select component with the given options', function () {

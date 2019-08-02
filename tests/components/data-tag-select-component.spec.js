@@ -4,19 +4,18 @@ define([
   '../test-utils/page-objects/select-page-object',
 ], function (jasmineUtils, DataTagSelectComponent, SelectPageObject) {
 
-  describe('DataTagSelectComponent', () => {
+  describe('DataTagSelectComponent', function () {
 
-    var createSelectPageObject = SelectPageObject.create;
     var selectPageObject;
 
-    beforeEach(() => {
+    beforeEach(function () {
       jasmineUtils.setFixture('<select id="testSelect"></select>');
-      selectPageObject = createSelectPageObject('testSelect');
+      selectPageObject = SelectPageObject.create('testSelect');
     });
 
-    describe('#create', () => {
+    describe('#create', function () {
 
-      beforeEach(() => {
+      beforeEach(function () {
         jasmineUtils.setDataTag('testSelect', 'categories', [
           {"value": 1, "label": "Fruits"},
           {"value": 2, "label": "Vegetables"}]

@@ -1,7 +1,7 @@
 define([
   '../test-utils/jasmine-utils'
 ], function (jasmineUtils) {
-  afterEach(() => {
+  afterEach(function () {
     jasmineUtils.clearFixture();
   });
 });
