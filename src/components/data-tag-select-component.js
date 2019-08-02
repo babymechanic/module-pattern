@@ -23,7 +23,7 @@ define([
 
       return (function () {
         var listeners = [];
-        var finalOptions = Object.assign({}, opts);
+        var finalOptions = jquery.extend({}, opts);
 
         var getData = function () {
           var element = jquery('#' + id);

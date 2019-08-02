@@ -63,7 +63,7 @@ define([
       ]);
       var value;
 
-      selectComponent.onChange((selectedValue) => {
+      selectComponent.onChange(function(selectedValue) {
         value = selectedValue;
       });
 

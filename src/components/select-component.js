@@ -20,7 +20,7 @@ define([
   var setupObserverNotification = function (id, listeners) {
     selectElement(id).change(function () {
       var selectedValue = jquery('#' + id + ' option:selected').val();
-      listeners.forEach((listener) => {
+      listeners.forEach(function (listener) {
         listener(selectedValue);
       });
     });
@@ -40,7 +40,7 @@ define([
 
         var setOptions = function (options) {
           clear();
-          options.forEach((option) => {
+          options.forEach(function (option) {
             selectElement(id).append(createOption(option.value, option.label));
           });
         };
