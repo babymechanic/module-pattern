@@ -1,14 +1,9 @@
-var App = App || {};
-App.Pages = App.Pages || {};
-
-App.Pages.TestPage = App.Pages.TestPage || function () {
-
-  var createDataTagSelectComponent = function () {
-    return App.Components.DataTagSelectComponent.create;
-  };
+define([
+  '../components/data-tag-select-component'
+], function (DataTagSelectComponent) {
 
   var createCategoriesComponent = function () {
-    return createDataTagSelectComponent()('category', 'categories', {
+    return DataTagSelectComponent.create('category', 'categories', {
       dataParser: function (data) {
         return data.map(function (item) {
           return {
@@ -21,7 +16,7 @@ App.Pages.TestPage = App.Pages.TestPage || function () {
   };
 
   var createSubCategoryComponent = function (categoriesComponent) {
-    return createDataTagSelectComponent()('items', 'sub-categories', {
+    return DataTagSelectComponent.create('items', 'sub-categories', {
       dataParser: function (data) {
         return data
           .filter(function (item) {
@@ -49,5 +44,7 @@ App.Pages.TestPage = App.Pages.TestPage || function () {
       init: init
     }
   }()
-}();
+
+});
+
 

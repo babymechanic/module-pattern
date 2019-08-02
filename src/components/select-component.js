@@ -1,10 +1,9 @@
-var App = App || {};
-App.Components = App.Components || {};
-
-App.Components.SelectComponent = App.Components.SelectComponent || function () {
+define([
+  'jquery'
+], function (jquery) {
 
   var selectElement = function (id) {
-    return $('#' + id);
+    return jquery('#' + id);
   };
 
   var createOption = function (value, label) {
@@ -13,9 +12,18 @@ App.Components.SelectComponent = App.Components.SelectComponent || function () {
 
 
   function allOptions(id) {
-    return $('select#' + id + ' option').map(function () {
-      return $(this).val();
+    return jquery('select#' + id + ' option').map(function () {
+      return jquery(this).val();
     }).toArray();
+  }
+
+  function setupObserverNotification(id, listeners) {
+    selectElement(id).change(function () {
+      var selectedValue = jquery('#' + id + ' option:selected').val();
+      listeners.forEach((listener) => {
+        listener(selectedValue);
+      });
+    });
   }
 
   return {
@@ -24,12 +32,7 @@ App.Components.SelectComponent = App.Components.SelectComponent || function () {
 
         var listeners = [];
 
-        selectElement(id).change(function () {
-          var selectedValue = $('#' + id + ' option:selected').val();
-          listeners.forEach((listener) => {
-            listener(selectedValue);
-          });
-        });
+        setupObserverNotification(id, listeners);
 
         var clear = function () {
           selectElement(id).empty();
@@ -66,4 +69,4 @@ App.Components.SelectComponent = App.Components.SelectComponent || function () {
       }();
     },
   }
-}();
+});

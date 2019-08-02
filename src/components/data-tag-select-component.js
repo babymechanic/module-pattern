@@ -1,14 +1,10 @@
-var App = App || {};
-App.Components = App.Components || {};
-
-App.Components.DataTagSelectComponent = App.Components.DataTagSelectComponent || function () {
-
-  function selectComponent() {
-    return App.Components.SelectComponent;
-  }
+define([
+  'jquery',
+  './select-component'
+], function (jquery, SelectComponent) {
 
   function createSelectComponent(id, data, listeners) {
-    var createdComponent = selectComponent().create(id);
+    var createdComponent = SelectComponent.create(id);
     createdComponent.setOptions(data);
     createdComponent.onChange(function (selectedValue) {
       var matchingItems = data.filter(function (x) {
@@ -29,8 +25,8 @@ App.Components.DataTagSelectComponent = App.Components.DataTagSelectComponent ||
         var listeners = [];
         var finalOptions = Object.assign({}, opts);
 
-        var getData = function() {
-          var element = $('#' + id);
+        var getData = function () {
+          var element = jquery('#' + id);
           var data = element.data(dataTagName);
           return finalOptions.dataParser ? finalOptions.dataParser(data) : data;
         };
@@ -57,4 +53,5 @@ App.Components.DataTagSelectComponent = App.Components.DataTagSelectComponent ||
       })();
     }
   }
-}();
+
+});

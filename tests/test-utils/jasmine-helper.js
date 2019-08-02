@@ -1,3 +1,9 @@
-afterEach(() => {
-  App.TestUtils.Jasmine.clearFixture();
+define([
+  '../test-utils/jasmine-utils'
+], function (jasmineUtils) {
+  afterEach(() => {
+    jasmineUtils.clearFixture();
+  });
 });
+
+

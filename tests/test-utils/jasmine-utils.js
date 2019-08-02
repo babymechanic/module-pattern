@@ -1,15 +1,15 @@
-var App = App || {};
-App.TestUtils = App.TestUtils || {};
-App.TestUtils.Jasmine = App.TestUtils.Jasmine || function () {
+define([
+  'jquery'
+], function (jquery) {
   return {
     clearFixture: function () {
-      $('#testFixture').html('');
+      jquery('#testFixture').html('');
     },
     setFixture: function (html) {
-      $('#testFixture').html(html)
+      jquery('#testFixture').html(html)
     },
     setDataTag: function (id, tagName, data) {
-      $('#'+id).data(tagName, data);
+      jquery('#' + id).data(tagName, data);
     }
   };
-}();
+});

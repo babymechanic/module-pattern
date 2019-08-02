@@ -1,30 +1,28 @@
-var App = App || {};
-App.TestUtils = App.TestUtils || {};
-App.TestUtils.PageObjects = App.TestUtils.PageObjects || {};
-
-App.TestUtils.PageObjects.SelectPageObject = App.TestUtils.PageObjects.SelectPageObject || function () {
+define([
+  'jquery'
+], function (jquery) {
   return {
     create: function (id) {
       return function () {
         return {
           optionsCount: function () {
-            return $('select#' + id + ' option').length;
+            return jquery('select#' + id + ' option').length;
           },
           optionLabel: function (value) {
-            var matchingItems = $('select#' + id + ' option').filter(function () {
-              return $(this).val() === value;
+            var matchingItems = jquery('select#' + id + ' option').filter(function () {
+              return jquery(this).val() === value;
             });
             if (matchingItems.length === 0) return null;
             return matchingItems[0].innerText;
           },
           selectOption: function (value) {
-            $('#' + id).val(value.toString()).trigger('change');
+            jquery('#' + id).val(value.toString()).trigger('change');
           },
           selectedOption: function () {
-            return $('#' + id).val();
+            return jquery('#' + id).val();
           }
         };
       }();
     }
   };
-}();
+});
