@@ -19,7 +19,7 @@ requirejs.config({
 });
 
 requirejs(['./jasmine-spec-list'], function (listOfSpecs) {
-  require(listOfSpecs, function () {
+  require(listOfSpecs.concat('./test-utils/jasmine-helper'), function () {
     window.onload(null);
   });
 });
